@@ -9,19 +9,22 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet private weak var resultLabel: UILabel!
+
+    private var count = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        resultLabel.text = "0"
+        resultLabel.text = String(count)
     }
 
     @IBAction private func plusOneButton(_ sender: Any) {
-        var resultNumber = Int(resultLabel.text ?? "") ?? 0
-        resultNumber += 1
-        resultLabel.text = "\(resultNumber)"
+        count += 1
+        resultLabel.text = String(count)
     }
 
     @IBAction private func clearButton(_ sender: Any) {
-        resultLabel.text = "0"
+        count = 0
+        resultLabel.text = String(count)
     }
 }
